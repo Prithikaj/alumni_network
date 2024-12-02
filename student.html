@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Placement Outcome</h2>
+    <p>Is placement possible: {{ 'Yes' if placement_possible else 'No' }}</p>
+
+    <h3>Alumni at this Company</h3>
+    <ul>
+        {% for alumnus in alumni %}
+        <li>{{ alumnus['name'] }} - {{ alumnus['role'] }}
+            {% if alumnus['linkedin'] %}
+            <a href="{{ alumnus['linkedin'] }}" target="_blank">LinkedIn</a>
+            {% else %}
+            <span>No LinkedIn available</span>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Influential Alumni</h3>
+    <ul>
+        {% for name, influence in influencers.items() %}
+        <li>{{ name }} - Influence: {{ influence }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

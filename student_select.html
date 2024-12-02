@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Select Company</h2>
+    <form action="/student" method="post">
+        <div class="form-group">
+            <label for="company">Select a company:</label>
+            <select class="form-control" id="company" name="company">
+                {% for company in companies %}
+                    <option value="{{ company }}">{{ company }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Go</button>
+    </form>
+</div>
+{% endblock %}
